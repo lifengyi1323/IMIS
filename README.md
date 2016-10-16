@@ -64,10 +64,10 @@
   ```
   (1)根据设备ID查询保养记录
 select * from 设备 as a inner join 保养记录 as b on a.设备ID=b.设备ID
- 
+ ![](https://github.com/lifengyi1323/IMIS/blob/master/%E6%9F%A5%E8%AF%A2%E4%BF%9D%E5%85%BB%E8%AE%B0%E5%BD%95.png)
 select * from 设备 as a inner join 保养记录 as b on a.设备ID=b.设备ID where a.设备ID="1"
- 
+  ![](https://github.com/lifengyi1323/IMIS/blob/master/%E6%9F%A5%E8%AF%A2%E4%BF%9D%E5%85%BB%E8%AE%B0%E5%BD%95.png)
 (2)根据设备ID打印检修报告
 select * from 设备 as a inner join 保养记录 as b on a.设备ID=b.设备ID left join 保养xiaohao as c on b.保养记录ID=c.保养记录ID where a.设备ID="1"  
-
+  ![](https://github.com/lifengyi1323/IMIS/blob/master/%E6%9F%A5%E8%AF%A2%E4%BF%9D%E5%85%BB%E8%AE%B0%E5%BD%95.png)
 
