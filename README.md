@@ -4,8 +4,8 @@
   1.数据库ER图
   ![](https://github.com/lifengyi1323/IMIS/blob/master/ER%E5%9B%BE.png)
    2.建表SQL
-   （1）创建设备类型表
    ```
+   （1）创建设备类型表
     CREATE TABLE `设备类型` (
     `设备类型ID` int(11) NOT NULL,
     `设备类型` varchar(45) NOT NULL,
