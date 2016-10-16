@@ -5,6 +5,7 @@
   ![](https://github.com/lifengyi1323/IMIS/blob/master/ER%E5%9B%BE.png)
    2.建表SQL
    （1）创建设备类型表
+   ```
     CREATE TABLE `设备类型` (
     `设备类型ID` int(11) NOT NULL,
     `设备类型` varchar(45) NOT NULL,
@@ -58,5 +59,5 @@
     KEY `k5_idx` (`保养记录ID`),
     CONSTRAINT `k5` FOREIGN KEY (`保养记录ID`) REFERENCES `保养记录` (`保养记录ID`) ON DELETE CASCADE ON UPDATE CASCADE；
   INSERT INTO `保养xiaohao` VALUES (1,1,'电线',2,'根');
-
+```
 
