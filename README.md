@@ -1,9 +1,9 @@
 # IMIS
 ##电气设备保养系统
   一、
-  1.数据库ER图
+    1.数据库ER图
   ![](https://github.com/lifengyi1323/IMIS/blob/master/ER%E5%9B%BE.png)
-   2.建表SQL
+    2.建表SQL
    ```
    （1）创建设备类型表
     CREATE TABLE `设备类型` (
@@ -59,5 +59,15 @@
     KEY `k5_idx` (`保养记录ID`),
     CONSTRAINT `k5` FOREIGN KEY (`保养记录ID`) REFERENCES `保养记录` (`保养记录ID`) ON DELETE CASCADE ON UPDATE CASCADE；
   INSERT INTO `保养xiaohao` VALUES (1,1,'电线',2,'根');
-```
+  ```
+  3.查询SQL
+  ```
+  (1)根据设备ID查询保养记录
+select * from 设备 as a inner join 保养记录 as b on a.设备ID=b.设备ID
+ 
+select * from 设备 as a inner join 保养记录 as b on a.设备ID=b.设备ID where a.设备ID="1"
+ 
+(2)根据设备ID打印检修报告
+select * from 设备 as a inner join 保养记录 as b on a.设备ID=b.设备ID left join 保养xiaohao as c on b.保养记录ID=c.保养记录ID where a.设备ID="1"  
+
 
