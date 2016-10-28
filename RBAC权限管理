@@ -1,0 +1,17 @@
+#SQL语句
+##查询用户test1对订单(order)页面中的操作权限(sys_button)
+``
+select  BtnName,MenuName,PrivilegeOperation 
+	from  cf_privilege 
+    inner join sys_button on (cf_privilege.PrivilegeAccessKey=sys_button.BtnID and        cf_privilege.PrivilegeAccess="Sys_Button")
+	inner join sys_menu on sys_button.MenuNo=sys_menu.MenuNo
+	 where (cf_privilege.PrivilegeMaster="CF_User" and cf_privilege.PrivilegeMasterKey=(select UserID as i from cf_user where LoginName="test1")) or
+			(cf_privilege.PrivilegeMaster="CF_Role" and cf_privilege.PrivilegeMasterKey=(select RoleID from cf_userrole where UserID=(select UserID as i from cf_user where LoginName="test1")));
+``
+##查询用户test1可以查看的页面（Sys_menu）
+``
+select  MenuName,PrivilegeOperation 
+from  cf_privilege inner join sys_menu on (cf_privilege.PrivilegeAccessKey=sys_menu.MenuID and cf_privilege.PrivilegeAccess="sys_menu")
+ where (cf_privilege.PrivilegeMaster="CF_User" and cf_privilege.PrivilegeMasterKey=(select UserID as i from cf_user where LoginName="test1")) or
+			(cf_privilege.PrivilegeMaster="CF_Role" and cf_privilege.PrivilegeMasterKey=(select RoleID from cf_userrole where UserID=(select UserID as i from cf_user where LoginName="test1")));
+``
